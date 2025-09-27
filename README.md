@@ -68,7 +68,7 @@ cd dewey.decimal
 ```
 
 
-Made with ❤️ by Maverick
+Made with ❤️ by AndMaverick
 
 ## 📄 License
 Distributed under the MIT License. See `LICENSE` for details.
