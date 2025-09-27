@@ -52,13 +52,24 @@ Character count: 7,890
 Most common words: [data, system, analysis, model, process]
 Sentiment: Positive
 Readability: Grade 8 (Flesch-Kincaid)
-
+```
 
 ## 🗺 Roadmap
 - Add visualization for word frequency  
 - Extend sentiment analysis with additional libraries  
 - Package as Docker container for easy deployment  
 
+## ⚙️ Installation
+Clone the repo:
+```bash
+git clone https://github.com/AndMaverick/dewey.decimal.git
+cd dewey.decimal
+```
+
+Made with ❤️ by Maverick
+
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for details.
 
 
 
