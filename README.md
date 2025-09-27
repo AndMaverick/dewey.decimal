@@ -75,11 +75,9 @@ git clone https://github.com/AndMaverick/dewey.decimal.git
 cd dewey.decimal
 ```
 
-
-Made with ❤️ by AndMaverick
-
 ## 📄 License
 Distributed under the MIT License. See `LICENSE` for details.
 
 
+Made with ❤️ by AndMaverick
 
