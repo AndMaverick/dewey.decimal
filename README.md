@@ -12,6 +12,7 @@
 - [Example Usage](#-example-usage)
 - [Sample Output](#-sample-output)
 - [Roadmap](#-roadmap)
+- [Installation](#-installation)
 - [License](#-license)
 
 
