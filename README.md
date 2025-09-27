@@ -4,7 +4,9 @@
   <img src="https://img.shields.io/badge/status-Active-success" alt="Status">
   <img src="https://img.shields.io/badge/version-1.0.0-brightgreen" alt="Version">
 </p>
-# Dewey.Decimal 📊
+# ──── ✨ Dewey.Decimal 📚 ────  
+*Turning unstructured text into decision-ready insights.*  
+
 
 ## 📑 Table of Contents
 - [Features](#-features)
