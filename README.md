@@ -64,11 +64,8 @@ Clone the repo:
 ```bash
 git clone https://github.com/AndMaverick/dewey.decimal.git
 cd dewey.decimal
-python analyzer.py example_text.txt
-node analyzer.js example_text.txt
-go run analyzer.go example_text.txt
-
 ```
+
 
 Made with ❤️ by Maverick
 
