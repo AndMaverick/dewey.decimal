@@ -53,8 +53,12 @@ Most common words: [data, system, analysis, model, process]
 Sentiment: Positive
 Readability: Grade 8 (Flesch-Kincaid)
 
-## 🗺️ Roadmap
-- [ ] Add language detection for multilingual support  
-- [ ] Export results to CSV/JSON for reporting  
-- [ ] Integrate simple data visualizations (charts for sentiment/word freq)  
+
+## 🗺 Roadmap
+- Add visualization for word frequency  
+- Extend sentiment analysis with additional libraries  
+- Package as Docker container for easy deployment  
+
+
+
 
