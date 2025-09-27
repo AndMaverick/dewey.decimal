@@ -12,6 +12,8 @@
 
 </div>
 
+![CI](https://github.com/AndMaverick/dewey.decimal/actions/workflows/ci.yml/badge.svg)
+
 
 
 ## 📑 Table of Contents
