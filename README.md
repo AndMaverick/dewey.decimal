@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/version-1.0.0-brightgreen" alt="Version">
 </p>
 # Dewey.Decimal 📊
+
 ## 📑 Table of Contents
 - [Features](#-features)
 - [Implementations](#-implementations)
