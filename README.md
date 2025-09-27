@@ -1,4 +1,18 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/language-Python%20%7C%20JavaScript%20%7C%20Go-blue" alt="Languages">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/status-Active-success" alt="Status">
+  <img src="https://img.shields.io/badge/version-1.0.0-brightgreen" alt="Version">
+</p>
 # Dewey.Decimal 📊
+## 📑 Table of Contents
+- [Features](#-features)
+- [Implementations](#-implementations)
+- [Example Usage](#-example-usage)
+- [Sample Output](#-sample-output)
+- [Roadmap](#-roadmap)
+- [License](#-license)
+
 
 Turning raw text into decision-ready insights.
 
