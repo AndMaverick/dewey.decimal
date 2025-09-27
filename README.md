@@ -5,8 +5,13 @@
   <img src="https://img.shields.io/badge/version-1.0.0-brightgreen" alt="Version">
 </p>
 
-  # ──── ✨ Dewey.Decimal 📚 ────  
-  *Turning unstructured text into decision-ready insights.*  
+ <div align="center">
+
+# ✨ Dewey.Decimal 📚  
+*Turning unstructured text into decision-ready insights.*  
+
+</div>
+
 
 
 ## 📑 Table of Contents
