@@ -1,0 +1,9 @@
+Quarterly review
+
+The team shipped the new analytics platform two weeks ahead of schedule. Customers report that the dashboards are fast, reliable and easy to use, and the support
+queue is the shortest it has been all year. We are proud of the progress and excited about the opportunities in the next quarter.
+
+There were problems as well. The migration of the old reporting system caused delays, and a few customers complained about errors in exported files.
+The risk of further delays remains, and the budget is not as strong as we had hoped. Dr. Weber estimates that the fixes need about 3.5 weeks.
+
+Next steps: finish the migration, close the open complaints and review the plan with the board.

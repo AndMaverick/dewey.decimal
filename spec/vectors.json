@@ -1,0 +1,308 @@
+[
+ {
+  "name": "empty",
+  "text": "",
+  "lang": null,
+  "expect": "{\n  \"characters\": 0,\n  \"characters_no_space\": 0,\n  \"language\": \"unknown\",\n  \"lines\": 0,\n  \"numbers\": 0,\n  \"paragraphs\": 0,\n  \"readability\": null,\n  \"sentences\": 0,\n  \"sentiment\": null,\n  \"top_terms\": [],\n  \"unique_words\": 0,\n  \"words\": 0\n}\n"
+ },
+ {
+  "name": "only spaces",
+  "text": "   \n\t  \n",
+  "lang": null,
+  "expect": "{\n  \"characters\": 8,\n  \"characters_no_space\": 0,\n  \"language\": \"unknown\",\n  \"lines\": 2,\n  \"numbers\": 0,\n  \"paragraphs\": 0,\n  \"readability\": null,\n  \"sentences\": 0,\n  \"sentiment\": null,\n  \"top_terms\": [],\n  \"unique_words\": 0,\n  \"words\": 0\n}\n"
+ },
+ {
+  "name": "cat",
+  "text": "The cat sat on the mat.\n",
+  "lang": null,
+  "expect": "{\n  \"characters\": 24,\n  \"characters_no_space\": 18,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -1.45,\n    \"flesch_reading_ease\": 116.15,\n    \"gunning_fog\": 2.4\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"mat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"sat\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "cat (forced en)",
+  "text": "The cat sat on the mat.\n",
+  "lang": "en",
+  "expect": "{\n  \"characters\": 24,\n  \"characters_no_space\": 18,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -1.45,\n    \"flesch_reading_ease\": 116.15,\n    \"gunning_fog\": 2.4\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"mat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"sat\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "cat (forced de)",
+  "text": "The cat sat on the mat.\n",
+  "lang": "de",
+  "expect": "{\n  \"characters\": 24,\n  \"characters_no_space\": 18,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 115.5,\n    \"wiener_sachtext_1\": -3.14\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"mat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"sat\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "no final newline",
+  "text": "The cat sat on the mat.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 23,\n  \"characters_no_space\": 18,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -1.45,\n    \"flesch_reading_ease\": 116.15,\n    \"gunning_fog\": 2.4\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"mat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"sat\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "two sentences",
+  "text": "The quick brown fox jumps over the lazy dog. The dog did not mind!",
+  "lang": null,
+  "expect": "{\n  \"characters\": 66,\n  \"characters_no_space\": 53,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 0.63,\n    \"flesch_reading_ease\": 103.04,\n    \"gunning_fog\": 2.8\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 1,\n    \"score\": 0.25\n  },\n  \"top_terms\": [\n    {\n      \"count\": 2,\n      \"term\": \"dog\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"brown\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"fox\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"jumps\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"lazy\"\n    }\n  ],\n  \"unique_words\": 11,\n  \"words\": 14\n}\n"
+ },
+ {
+  "name": "question and ellipsis",
+  "text": "Is this working? Yes... it is working\u2026 Really!?",
+  "lang": null,
+  "expect": "{\n  \"characters\": 47,\n  \"characters_no_space\": 40,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 1.42,\n    \"flesch_reading_ease\": 88.48,\n    \"gunning_fog\": 0.8\n  },\n  \"sentences\": 4,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 2,\n      \"term\": \"working\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"really\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"yes\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 8\n}\n"
+ },
+ {
+  "name": "abbreviation",
+  "text": "Dr. Smith met Mr. Jones at 5 p.m. in St. Louis. They talked.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 60,\n  \"characters_no_space\": 48,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 1,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -1.19,\n    \"flesch_reading_ease\": 111.33,\n    \"gunning_fog\": 1.73\n  },\n  \"sentences\": 3,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"jones\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"louis\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"met\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"smith\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"talked\"\n    }\n  ],\n  \"unique_words\": 13,\n  \"words\": 13\n}\n"
+ },
+ {
+  "name": "not an abbreviation at end",
+  "text": "He lives in the city of Wien. Then he left.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 43,\n  \"characters_no_space\": 34,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -0.66,\n    \"flesch_reading_ease\": 108.7,\n    \"gunning_fog\": 2\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"city\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"left\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"lives\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"wien\"\n    }\n  ],\n  \"unique_words\": 9,\n  \"words\": 10\n}\n"
+ },
+ {
+  "name": "decimal numbers",
+  "text": "Version 3.5 costs 1,200.50 dollars and 12 cents.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 48,\n  \"characters_no_space\": 41,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 3,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cents\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"costs\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"dollars\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"version\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 5\n}\n"
+ },
+ {
+  "name": "closing quote",
+  "text": "She said \"it works.\" Then she left. 'Fine,' he said.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 52,\n  \"characters_no_space\": 43,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -2.49,\n    \"flesch_reading_ease\": 118.85,\n    \"gunning_fog\": 1.33\n  },\n  \"sentences\": 3,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 1,\n    \"score\": 0.25\n  },\n  \"top_terms\": [\n    {\n      \"count\": 2,\n      \"term\": \"said\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"fine\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"left\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"works\"\n    }\n  ],\n  \"unique_words\": 8,\n  \"words\": 10\n}\n"
+ },
+ {
+  "name": "blank line ends sentence",
+  "text": "First paragraph without a stop\n\nSecond paragraph without a stop\n\n\nThird",
+  "lang": null,
+  "expect": "{\n  \"characters\": 71,\n  \"characters_no_space\": 58,\n  \"language\": \"unknown\",\n  \"lines\": 6,\n  \"numbers\": 0,\n  \"paragraphs\": 3,\n  \"readability\": null,\n  \"sentences\": 3,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 2,\n      \"term\": \"paragraph\"\n    },\n    {\n      \"count\": 2,\n      \"term\": \"stop\"\n    },\n    {\n      \"count\": 2,\n      \"term\": \"without\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"first\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"second\"\n    }\n  ],\n  \"unique_words\": 7,\n  \"words\": 11\n}\n"
+ },
+ {
+  "name": "crlf",
+  "text": "One line.\r\nTwo lines.\r\n\r\nNew paragraph.\r\n",
+  "lang": null,
+  "expect": "{\n  \"characters\": 41,\n  \"characters_no_space\": 30,\n  \"language\": \"unknown\",\n  \"lines\": 4,\n  \"numbers\": 0,\n  \"paragraphs\": 2,\n  \"readability\": null,\n  \"sentences\": 3,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"line\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"lines\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"new\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"one\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"paragraph\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "cr only",
+  "text": "a.\rb.\rc.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 8,\n  \"characters_no_space\": 6,\n  \"language\": \"unknown\",\n  \"lines\": 3,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 3,\n  \"sentiment\": null,\n  \"top_terms\": [],\n  \"unique_words\": 3,\n  \"words\": 3\n}\n"
+ },
+ {
+  "name": "hyphen and apostrophe",
+  "text": "It's a well-known fact that rock-and-roll isn't dead; don't panic- really.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 74,\n  \"characters_no_space\": 64,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"dead\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"don't\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"fact\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"isn't\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"it's\"\n    }\n  ],\n  \"unique_words\": 11,\n  \"words\": 11\n}\n"
+ },
+ {
+  "name": "curly apostrophe",
+  "text": "It\u2019s the \u2018best\u2019 thing we\u2019ve done.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 33,\n  \"characters_no_space\": 28,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"best\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"done\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"it\u2019s\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"thing\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"we\u2019ve\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "german",
+  "text": "Der Bericht ist sehr gut. Die Ergebnisse sind nicht schlecht, und wir sind mit dem Wachstum zufrieden.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 102,\n  \"characters_no_space\": 86,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 88.91,\n    \"wiener_sachtext_1\": 4.14\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 1,\n    \"positive_hits\": 3,\n    \"score\": 0.9\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bericht\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"ergebnisse\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"gut\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"schlecht\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"wachstum\"\n    }\n  ],\n  \"unique_words\": 16,\n  \"words\": 17\n}\n"
+ },
+ {
+  "name": "german (forced en)",
+  "text": "Der Bericht ist sehr gut. Die Ergebnisse sind nicht schlecht, und wir sind mit dem Wachstum zufrieden.",
+  "lang": "en",
+  "expect": "{\n  \"characters\": 102,\n  \"characters_no_space\": 86,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 3.69,\n    \"flesch_reading_ease\": 83.75,\n    \"gunning_fog\": 8.11\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bericht\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"ergebnisse\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"gut\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"schlecht\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"wachstum\"\n    }\n  ],\n  \"unique_words\": 16,\n  \"words\": 17\n}\n"
+ },
+ {
+  "name": "german (forced de)",
+  "text": "Der Bericht ist sehr gut. Die Ergebnisse sind nicht schlecht, und wir sind mit dem Wachstum zufrieden.",
+  "lang": "de",
+  "expect": "{\n  \"characters\": 102,\n  \"characters_no_space\": 86,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 88.91,\n    \"wiener_sachtext_1\": 4.14\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 1,\n    \"positive_hits\": 3,\n    \"score\": 0.9\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bericht\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"ergebnisse\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"gut\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"schlecht\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"wachstum\"\n    }\n  ],\n  \"unique_words\": 16,\n  \"words\": 17\n}\n"
+ },
+ {
+  "name": "german negation",
+  "text": "Das Produkt ist nicht gut und kein Erfolg. Es war sehr schlecht.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 64,\n  \"characters_no_space\": 53,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 105.75,\n    \"wiener_sachtext_1\": -0.44\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"negative\",\n    \"negative_hits\": 1,\n    \"positive_hits\": 2,\n    \"score\": -0.82\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"erfolg\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"gut\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"produkt\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"schlecht\"\n    }\n  ],\n  \"unique_words\": 12,\n  \"words\": 12\n}\n"
+ },
+ {
+  "name": "english sentiment",
+  "text": "I love this product. It is great, not bad at all, and the team was very helpful.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 80,\n  \"characters_no_space\": 64,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 1.61,\n    \"flesch_reading_ease\": 98.68,\n    \"gunning_fog\": 3.4\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 1,\n    \"positive_hits\": 3,\n    \"score\": 0.93\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bad\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"great\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"helpful\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"love\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"product\"\n    }\n  ],\n  \"unique_words\": 17,\n  \"words\": 17\n}\n"
+ },
+ {
+  "name": "english sentiment (forced en)",
+  "text": "I love this product. It is great, not bad at all, and the team was very helpful.",
+  "lang": "en",
+  "expect": "{\n  \"characters\": 80,\n  \"characters_no_space\": 64,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 1.61,\n    \"flesch_reading_ease\": 98.68,\n    \"gunning_fog\": 3.4\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 1,\n    \"positive_hits\": 3,\n    \"score\": 0.93\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bad\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"great\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"helpful\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"love\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"product\"\n    }\n  ],\n  \"unique_words\": 17,\n  \"words\": 17\n}\n"
+ },
+ {
+  "name": "english sentiment (forced de)",
+  "text": "I love this product. It is great, not bad at all, and the team was very helpful.",
+  "lang": "de",
+  "expect": "{\n  \"characters\": 80,\n  \"characters_no_space\": 64,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 99.24,\n    \"wiener_sachtext_1\": -0.43\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bad\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"great\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"helpful\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"love\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"product\"\n    }\n  ],\n  \"unique_words\": 17,\n  \"words\": 17\n}\n"
+ },
+ {
+  "name": "english negative",
+  "text": "This was a terrible failure. The service is not good and the delays are awful.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 78,\n  \"characters_no_space\": 64,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 3.86,\n    \"flesch_reading_ease\": 80.78,\n    \"gunning_fog\": 5.67\n  },\n  \"sentences\": 2,\n  \"sentiment\": {\n    \"label\": \"negative\",\n    \"negative_hits\": 4,\n    \"positive_hits\": 1,\n    \"score\": -0.95\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"awful\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"delays\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"failure\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"good\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"service\"\n    }\n  ],\n  \"unique_words\": 14,\n  \"words\": 15\n}\n"
+ },
+ {
+  "name": "negation window",
+  "text": "It is not really a very good idea but great.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 44,\n  \"characters_no_space\": 35,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 3.65,\n    \"flesch_reading_ease\": 86.71,\n    \"gunning_fog\": 4\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 2,\n    \"score\": 0.82\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"good\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"great\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"idea\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"really\"\n    }\n  ],\n  \"unique_words\": 10,\n  \"words\": 10\n}\n"
+ },
+ {
+  "name": "boosters",
+  "text": "The result was extremely good and slightly bad and very poor.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 61,\n  \"characters_no_space\": 51,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 6.94,\n    \"flesch_reading_ease\": 64.92,\n    \"gunning_fog\": 8.04\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"negative\",\n    \"negative_hits\": 2,\n    \"positive_hits\": 1,\n    \"score\": -0.25\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bad\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"extremely\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"good\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"poor\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"result\"\n    }\n  ],\n  \"unique_words\": 10,\n  \"words\": 11\n}\n"
+ },
+ {
+  "name": "unknown language",
+  "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 55,\n  \"characters_no_space\": 48,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"adipiscing\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"amet\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"consectetur\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"dolor\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"elit\"\n    }\n  ],\n  \"unique_words\": 8,\n  \"words\": 8\n}\n"
+ },
+ {
+  "name": "unknown language (forced en)",
+  "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+  "lang": "en",
+  "expect": "{\n  \"characters\": 55,\n  \"characters_no_space\": 48,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 15.56,\n    \"flesch_reading_ease\": -2.21,\n    \"gunning_fog\": 13.2\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"adipiscing\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"amet\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"consectetur\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"dolor\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"elit\"\n    }\n  ],\n  \"unique_words\": 8,\n  \"words\": 8\n}\n"
+ },
+ {
+  "name": "unknown language (forced de)",
+  "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+  "lang": "de",
+  "expect": "{\n  \"characters\": 55,\n  \"characters_no_space\": 48,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 33.06,\n    \"wiener_sachtext_1\": 8.13\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"adipiscing\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"amet\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"consectetur\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"dolor\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"elit\"\n    }\n  ],\n  \"unique_words\": 8,\n  \"words\": 8\n}\n"
+ },
+ {
+  "name": "decomposed accents",
+  "text": "Cafe\u0301 re\u0301sume\u0301 und U\u0308berpru\u0308fung der Ge\u0308ste.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 44,\n  \"characters_no_space\": 39,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cafe\u0301\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"ge\u0308ste\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"re\u0301sume\u0301\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"u\u0308berpru\u0308fung\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "decomposed accents (forced en)",
+  "text": "Cafe\u0301 re\u0301sume\u0301 und U\u0308berpru\u0308fung der Ge\u0308ste.",
+  "lang": "en",
+  "expect": "{\n  \"characters\": 44,\n  \"characters_no_space\": 39,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 6.42,\n    \"flesch_reading_ease\": 59.75,\n    \"gunning_fog\": 9.07\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cafe\u0301\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"ge\u0308ste\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"re\u0301sume\u0301\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"u\u0308berpru\u0308fung\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "decomposed accents (forced de)",
+  "text": "Cafe\u0301 re\u0301sume\u0301 und U\u0308berpru\u0308fung der Ge\u0308ste.",
+  "lang": "de",
+  "expect": "{\n  \"characters\": 44,\n  \"characters_no_space\": 39,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 47.25,\n    \"wiener_sachtext_1\": 9.81\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cafe\u0301\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"ge\u0308ste\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"re\u0301sume\u0301\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"u\u0308berpru\u0308fung\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "precomposed accents",
+  "text": "Caf\u00e9 r\u00e9sum\u00e9 und \u00dcberpr\u00fcfung der G\u00e4ste.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 38,\n  \"characters_no_space\": 33,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"caf\u00e9\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"g\u00e4ste\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"r\u00e9sum\u00e9\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u00fcberpr\u00fcfung\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "cjk",
+  "text": "\u6211\u559c\u6b22\u7f16\u7a0b\u3002\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\u3002\uc548\ub155\ud558\uc138\uc694 \uc138\uacc4.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 23,\n  \"characters_no_space\": 22,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u6211\u559c\u6b22\u7f16\u7a0b\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\uc548\ub155\ud558\uc138\uc694\"\n    }\n  ],\n  \"unique_words\": 4,\n  \"words\": 4\n}\n"
+ },
+ {
+  "name": "emoji astral",
+  "text": "Great work \ud83d\ude00\ud83d\ude80 team! \ud83c\udde9\ud83c\uddea",
+  "lang": null,
+  "expect": "{\n  \"characters\": 22,\n  \"characters_no_space\": 18,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"great\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"team\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"work\"\n    }\n  ],\n  \"unique_words\": 3,\n  \"words\": 3\n}\n"
+ },
+ {
+  "name": "greek and sigma",
+  "text": "\u039f\u0394\u039f\u03a3 \u0391\u0398\u0397\u039d\u0391 \u03bf\u03b4\u03cc\u03c2 \u03a3\u03a3.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 19,\n  \"characters_no_space\": 16,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"\u03b1\u03b8\u03b7\u03bd\u03b1\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u03bf\u03b4\u03bf\u03c3\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u03bf\u03b4\u03cc\u03c2\"\n    }\n  ],\n  \"unique_words\": 4,\n  \"words\": 4\n}\n"
+ },
+ {
+  "name": "turkish dotted i",
+  "text": "\u0130stanbul \u0130I ii. I\u0307 and i.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 25,\n  \"characters_no_space\": 20,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 2,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"\u0130stanbul\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "cyrillic",
+  "text": "\u041f\u0440\u0438\u0432\u0435\u0442 \u043c\u0438\u0440. \u042d\u0442\u043e \u0442\u0435\u0441\u0442.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 21,\n  \"characters_no_space\": 18,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 2,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"\u043c\u0438\u0440\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u043f\u0440\u0438\u0432\u0435\u0442\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u0442\u0435\u0441\u0442\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"\u044d\u0442\u043e\"\n    }\n  ],\n  \"unique_words\": 4,\n  \"words\": 4\n}\n"
+ },
+ {
+  "name": "odd spaces",
+  "text": "a\u00a0b\u2003c\u3000d\u2028e\u2029f\u0085g\u200bh\u202fi",
+  "lang": null,
+  "expect": "{\n  \"characters\": 17,\n  \"characters_no_space\": 10,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [],\n  \"unique_words\": 9,\n  \"words\": 9\n}\n"
+ },
+ {
+  "name": "bom",
+  "text": "\ufeffThe cat sat on the mat.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 24,\n  \"characters_no_space\": 19,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -1.45,\n    \"flesch_reading_ease\": 116.15,\n    \"gunning_fog\": 2.4\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"cat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"mat\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"sat\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 6\n}\n"
+ },
+ {
+  "name": "long word and sharp s",
+  "text": "Donaudampfschifffahrtsgesellschaft und Fu\u00dfball sind gro\u00dfartig, sehr gro\u00dfartig.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 78,\n  \"characters_no_space\": 72,\n  \"language\": \"de\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_amstad\": 14.21,\n    \"wiener_sachtext_1\": 14.6\n  },\n  \"sentences\": 1,\n  \"sentiment\": {\n    \"label\": \"positive\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 2,\n    \"score\": 0.87\n  },\n  \"top_terms\": [\n    {\n      \"count\": 2,\n      \"term\": \"gro\u00dfartig\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"donaudampfschifffahrtsgesellschaft\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"fu\u00dfball\"\n    }\n  ],\n  \"unique_words\": 6,\n  \"words\": 7\n}\n"
+ },
+ {
+  "name": "syllable cases",
+  "text": "created queue bases rhythm every people table simple stone cake yellow beautiful",
+  "lang": null,
+  "expect": "{\n  \"characters\": 80,\n  \"characters_no_space\": 69,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"bases\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"beautiful\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"cake\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"created\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"every\"\n    }\n  ],\n  \"unique_words\": 12,\n  \"words\": 12\n}\n"
+ },
+ {
+  "name": "many sentences",
+  "text": "Sentence number 0 is short. Sentence number 1 is short. Sentence number 2 is short. Sentence number 3 is short. Sentence number 4 is short. Sentence number 5 is short. Sentence number 6 is short. Sentence number 7 is short. Sentence number 8 is short. Sentence number 9 is short. Sentence number 10 is short. Sentence number 11 is short. Sentence number 12 is short. Sentence number 13 is short. Sentence number 14 is short. Sentence number 15 is short. Sentence number 16 is short. Sentence number 17 is short. Sentence number 18 is short. Sentence number 19 is short. Sentence number 20 is short. Sentence number 21 is short. Sentence number 22 is short. Sentence number 23 is short. Sentence number 24 is short. Sentence number 25 is short. Sentence number 26 is short. Sentence number 27 is short. Sentence number 28 is short. Sentence number 29 is short.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 859,\n  \"characters_no_space\": 710,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 30,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": 3.67,\n    \"flesch_reading_ease\": 75.88,\n    \"gunning_fog\": 1.6\n  },\n  \"sentences\": 30,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 30,\n      \"term\": \"number\"\n    },\n    {\n      \"count\": 30,\n      \"term\": \"sentence\"\n    },\n    {\n      \"count\": 30,\n      \"term\": \"short\"\n    }\n  ],\n  \"unique_words\": 4,\n  \"words\": 120\n}\n"
+ },
+ {
+  "name": "repeated terms",
+  "text": "data data data model model system analysis analysis analysis analysis report",
+  "lang": null,
+  "expect": "{\n  \"characters\": 76,\n  \"characters_no_space\": 66,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 4,\n      \"term\": \"analysis\"\n    },\n    {\n      \"count\": 3,\n      \"term\": \"data\"\n    },\n    {\n      \"count\": 2,\n      \"term\": \"model\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"report\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"system\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 11\n}\n"
+ },
+ {
+  "name": "tie break order",
+  "text": "zebra apple mango apple zebra mango kiwi",
+  "lang": null,
+  "expect": "{\n  \"characters\": 40,\n  \"characters_no_space\": 34,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 1,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 2,\n      \"term\": \"apple\"\n    },\n    {\n      \"count\": 2,\n      \"term\": \"mango\"\n    },\n    {\n      \"count\": 2,\n      \"term\": \"zebra\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"kiwi\"\n    }\n  ],\n  \"unique_words\": 4,\n  \"words\": 7\n}\n"
+ },
+ {
+  "name": "digits only",
+  "text": "2026 12.5 3,000 7",
+  "lang": null,
+  "expect": "{\n  \"characters\": 17,\n  \"characters_no_space\": 14,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 4,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 0,\n  \"sentiment\": null,\n  \"top_terms\": [],\n  \"unique_words\": 0,\n  \"words\": 0\n}\n"
+ },
+ {
+  "name": "punctuation only",
+  "text": "... !!! ??? \u2026\u2026",
+  "lang": null,
+  "expect": "{\n  \"characters\": 14,\n  \"characters_no_space\": 11,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 0,\n  \"sentiment\": null,\n  \"top_terms\": [],\n  \"unique_words\": 0,\n  \"words\": 0\n}\n"
+ },
+ {
+  "name": "terminator then closer then space",
+  "text": "He said (really!) and left.) Then \"what?\" came.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 47,\n  \"characters_no_space\": 40,\n  \"language\": \"en\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": {\n    \"flesch_kincaid_grade\": -1.54,\n    \"flesch_reading_ease\": 109.63,\n    \"gunning_fog\": 0.8\n  },\n  \"sentences\": 4,\n  \"sentiment\": {\n    \"label\": \"neutral\",\n    \"negative_hits\": 0,\n    \"positive_hits\": 0,\n    \"score\": 0\n  },\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"came\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"left\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"really\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"said\"\n    }\n  ],\n  \"unique_words\": 8,\n  \"words\": 8\n}\n"
+ },
+ {
+  "name": "abbrev with closer",
+  "text": "See Dr.) Then Mr.\" ok.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 22,\n  \"characters_no_space\": 18,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 0,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 3,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"see\"\n    }\n  ],\n  \"unique_words\": 5,\n  \"words\": 5\n}\n"
+ },
+ {
+  "name": "de abbreviations",
+  "text": "Z.B. bzw. usw. gilt hier, vgl. Abb. 3 und ca. 5 Prozent.",
+  "lang": null,
+  "expect": "{\n  \"characters\": 56,\n  \"characters_no_space\": 45,\n  \"language\": \"unknown\",\n  \"lines\": 1,\n  \"numbers\": 2,\n  \"paragraphs\": 1,\n  \"readability\": null,\n  \"sentences\": 2,\n  \"sentiment\": null,\n  \"top_terms\": [\n    {\n      \"count\": 1,\n      \"term\": \"abb\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"bzw\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"gilt\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"prozent\"\n    },\n    {\n      \"count\": 1,\n      \"term\": \"usw\"\n    }\n  ],\n  \"unique_words\": 11,\n  \"words\": 11\n}\n"
+ }
+]

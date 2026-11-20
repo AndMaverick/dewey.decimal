@@ -1,85 +1,97 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/language-Python%20%7C%20JavaScript%20%7C%20Go-blue" alt="Languages">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
-  <img src="https://img.shields.io/badge/status-Active-success" alt="Status">
-  <img src="https://img.shields.io/badge/version-1.0.0-brightgreen" alt="Version">
-</p>
+# Dewey.Decimal
 
- <div align="center">
+**Turning unstructured text into decision-ready insights.** Word and sentence counts, top terms, sentiment and readability for English and German,
+from one written specification and three implementations (Python, JavaScript, Go) that print the same bytes.
 
-# ✨ Dewey.Decimal 📚  
-*Turning unstructured text into decision-ready insights.*  
+[![CI](https://github.com/AndMaverick/dewey.decimal/actions/workflows/ci.yml/badge.svg)](https://github.com/AndMaverick/dewey.decimal/actions/workflows/ci.yml)
 
-</div>
+## Why there is a spec
 
-![CI](https://github.com/AndMaverick/dewey.decimal/actions/workflows/ci.yml/badge.svg)
+The three original scripts did not agree with each other. On the same file the Go version counted bytes, the JavaScript version counted UTF-16 units and the Python
+version counted characters, so `café 😀` was 10, 7 and 6 "characters". Only Python had sentiment and readability, and they came from two third-party packages that
+no other language shared. The CI job ran each script against a file that did not exist and passed anyway (`|| echo "ran"`).
 
+This version fixes the definition instead of the code: [`spec/SPEC.md`](spec/SPEC.md) says exactly how text is scanned, counted and scored, and each language
+implements it with its standard library only. A conformance job feeds the same texts to all three and fails if one byte of output differs.
 
+## Use
 
-## 📑 Table of Contents
-- [Features](#-features)
-- [Implementations](#-implementations)
-- [Example Usage](#-example-usage)
-- [Sample Output](#-sample-output)
-- [Roadmap](#-roadmap)
-- [Installation](#-installation)
-- [License](#-license)
-
-
-Turning raw text into decision-ready insights.
-
-This toolkit ingests plain text (reports, articles, logs, notes) and outputs clarity: counts, sentiment, readability, and common terms.
-
----
-
-## 🚀 Features
-- **Word & character counts** — quick size check  
-- **Most common words** — instant keyword extraction  
-- **Sentiment analysis** — positive / neutral / negative tone  
-- **Readability scores** — Flesch-Kincaid, so you know if your content is exec-ready  
-
----
-
-## 📂 Implementations
-- [analyzer.py](analyzer.py) — Python implementation  
-- [analyzer.js](analyzer.js) — JavaScript implementation  
-- [analyzer.go](analyzer.go) — Go implementation  
-
----
-
-## ⚡ Example Usage
-
-### 🐍 Python
-```bash
-python analyzer.py example_text.txt
-node analyzer.js example_text.txt
-go run analyzer.go example_text.txt
-
-## 📊 Sample Output
-
-Running the analyzer on `example_text.txt` produces results like:
-Word count: 1,245
-Character count: 7,890
-Most common words: [data, system, analysis, model, process]
-Sentiment: Positive
-Readability: Grade 8 (Flesch-Kincaid)
+```
+python analyzer.py examples/quarterly_review.txt         # or: python -m dewey_decimal FILE
+node analyzer.js examples/quarterly_review.txt
+go run analyzer.go examples/quarterly_review.txt
 ```
 
-## 🗺 Roadmap
-- Add visualization for word frequency  
-- Extend sentiment analysis with additional libraries  
-- Package as Docker container for easy deployment  
-
-## ⚙️ Installation
-Clone the repo:
-```bash
-git clone https://github.com/AndMaverick/dewey.decimal.git
-cd dewey.decimal
+```
+Analysis of examples/quarterly_review.txt
+  Words: 119   Sentences: 9   Paragraphs: 4
+  Characters: 699 (576 without spaces)   Language: en
+  Top terms: customers (2), delays (2), migration (2), next (2), review (2)
+  Sentiment: positive (+0.54; 9 positive and 6 negative words)
+  Readability: flesch kincaid grade 7.12, flesch reading ease 67.58, gunning fog 9.66
 ```
 
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for details.
+All three print exactly that. Add `--json` for the canonical JSON (sorted keys, shortest decimals, `null` where something does not apply), `--lang en|de` to override language
+detection, several files for an object keyed by file name. Exit code `2` if a file cannot be read as UTF-8.
 
+## What is measured
 
-Made with ❤️ by AndMaverick
+* **Counts**: words, unique words, numbers (`3.5` and `1,200` are one number each), sentences, paragraphs, lines, characters and characters without spaces, all in Unicode code points.
+  Abbreviations such as `Dr.`, `Mr.`, `z.B.`, `usw.` do not end a sentence; a blank line does.
+* **Top terms**: the five most frequent words that are not stop words, ties broken by code point order.
+* **Readability**: English Flesch reading ease, Flesch-Kincaid grade, Gunning fog. German Flesch-Amstad and the first Wiener Sachtextformel.
+* **Sentiment**: an original word list (221 English and 156 German words, values -3 to 3) with boosters (`very`, `sehr`) and a three-word negation window, scored as `raw / sqrt(raw^2 + 15)`.
 
+## Measured
+
+`python tools/evaluate.py` recomputes these and exits 1 if the conformance check fails. CI runs it.
+
+```
+English syllables right: 81/99
+  misses: area (true 3, got 2), beautiful (true 3, got 4), being (true 2, got 1), business (true 2, got 3), chocolate (true 2, got 3), comfortable (true 3, got 4), create (true 2, got 1), created (true 3, got 2), doing (true 2, got 1), evening (true 2, got 3), going (true 2, got 1), idea (true 3, got 2), interesting (true 3, got 4), poem (true 2, got 1), queue (true 1, got 2), rhythm (true 2, got 1), science (true 2, got 1), vegetable (true 3, got 4)
+German syllables right: 49/51
+  misses: museum (true 3, got 2), theater (true 3, got 2)
+  (the English rule is a known heuristic; these are the figures to expect on ordinary text, and the misses are listed)
+English sentiment labels right on 30 hand-labelled sentences: 30/30
+German sentiment labels right on 10 hand-labelled sentences: 9/10
+  missed (positive): Ein großartiges und wunderbares Ergebnis.
+sarcasm and double negatives, written to be hard: 2/3
+1541 texts, 3 implementations, JSON (detected, forced en, forced de) and text reports: byte-identical
+pass
+```
+
+How the output is checked, strongest first:
+
+1. **Byte-identical output** from Python, JavaScript and Go on 3000 generated texts in each of three modes (detected language, forced `en`, forced `de`) plus the plain text report, and on 41 curated texts that exercise every rule:
+   CRLF and bare CR, decomposed accents, astral emoji, Turkish dotted I, Greek final sigma, no-break and ideographic spaces, a byte order mark, abbreviations, closing quotes.
+   I broke the JavaScript on purpose twice (a negation weight, a space rule) to confirm the job catches it; it did, at the 16th text and the 114th.
+2. **Hand-verified values** in [`spec/hand_verified.json`](spec/hand_verified.json), worked out on paper: for `The cat sat on the mat.` the reading ease is `206.835 - 1.015 * 6 - 84.6 * 1 = 116.145`,
+   reported as 116.15; a negated `love` is `3 * -0.75 = -2.25`, score `-2.25 / sqrt(5.0625 + 15) = -0.50`. All three implementations check them.
+3. **Reference vectors** in `spec/vectors.json`, regenerated by CI and diffed, so they cannot drift from the reference.
+
+Floating point is made portable on purpose: every product is rounded to a double before it is added in Go (no fused multiply-add on any platform), and reported values are rounded to hundredths by integer arithmetic,
+so `0.125` is `0.13` in all three languages, where `printf`, `toFixed` and `round` disagree.
+
+## Honest limits
+
+* **The English syllable counter is a heuristic and is right on 81 of 99 ordinary words** (82%). It miscounts `-ing` after a vowel (`being`, `going`), `-ia`/`-ea` hiatus (`idea`, `area`, `create`), and
+  a few others; every miss is listed above. Readability scores inherit this error, so treat grade levels as +/- 1, not as exact.
+* **German syllables** are vowel runs: right on 49 of 51, wrong on `Theater` and `Museum` (vowel hiatus).
+* **Sentiment is a word list, not a model.** It scored 30/30 on English and 9/10 on German hand-labelled sentences **written by the same person who wrote the list**, which flatters it. The German miss is an inflected form
+  (`großartiges`) that is not in the list. Sarcasm and double negatives fail, as the last line shows. The 221 and 156 word lists are small; replace them with a larger one for real work.
+* **Language detection** needs at least three stop words; shorter texts are `unknown` and get no readability or sentiment unless you pass `--lang`.
+* **Only English and German.** Words are runs of letters, so Chinese and Japanese text is one long word.
+* **Unicode versions differ by runtime.** Letters assigned in a newer Unicode version than the oldest of the three runtimes can be classified differently; the generated texts use only long-stable characters.
+
+## Layout
+
+```
+spec/            SPEC.md, word lists, vectors.json, hand_verified.json (read by all three implementations)
+dewey_decimal/   Python reference          analyzer.py   launcher
+js/dewey.js      JavaScript                analyzer.js   launcher
+go/dewey/        Go                        analyzer.go   launcher
+tools/           corpus, vector generator, conformance runner, evaluate
+tests/           Python unittest and node:test; the Go tests are next to the Go code
+```
+
+MIT. AndMaverick LLC.
